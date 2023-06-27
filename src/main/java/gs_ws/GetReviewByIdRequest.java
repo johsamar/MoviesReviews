@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}String"/&gt;
  *         &lt;element name="serviceStatus" type="{http://spring.io/guides/gs-producing-web-service}serviceStatus"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "getReviewByIdRequest")
 public class GetReviewByIdRequest {
 
-    protected long id;
+    protected String id;
     @XmlElement(required = true)
     protected ServiceStatus serviceStatus;
 
@@ -47,7 +47,7 @@ public class GetReviewByIdRequest {
      * Obtiene el valor de la propiedad id.
      * 
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -55,7 +55,7 @@ public class GetReviewByIdRequest {
      * Define el valor de la propiedad id.
      * 
      */
-    public void setId(long value) {
+    public void setId(String value) {
         this.id = value;
     }
 

@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}String"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,13 +40,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "deleteReviewRequest")
 public class DeleteReviewRequest {
 
-    protected long id;
+    protected String id;
 
     /**
      * Obtiene el valor de la propiedad id.
      * 
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -54,7 +54,7 @@ public class DeleteReviewRequest {
      * Define el valor de la propiedad id.
      * 
      */
-    public void setId(long value) {
+    public void setId(String value) {
         this.id = value;
     }
 

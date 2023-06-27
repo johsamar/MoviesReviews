@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.*;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="serviceStatus" type="{http://spring.io/guides/gs-producing-web-service}serviceStatus"/&gt;
- *         &lt;element name="songInfo" type="{http://spring.io/guides/gs-producing-web-service}songInfo"/&gt;
+ *         &lt;element name="reviewSchema" type="{http://spring.io/guides/gs-producing-web-service}reviewSchema"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "serviceStatus",
-    "songInfo"
+    "reviewSchema"
 })
 @XmlRootElement(name = "addReviewResponse")
 public class AddReviewResponse {
@@ -42,7 +42,7 @@ public class AddReviewResponse {
     @XmlElement(required = true)
     protected ServiceStatus serviceStatus;
     @XmlElement(required = true)
-    protected Review songInfo;
+    protected ReviewSchema reviewSchema;
 
     /**
      * Obtiene el valor de la propiedad serviceStatus.
@@ -69,27 +69,27 @@ public class AddReviewResponse {
     }
 
     /**
-     * Obtiene el valor de la propiedad songInfo.
+     * Obtiene el valor de la propiedad reviewSchema.
      * 
      * @return
      *     possible object is
-     *     {@link Review }
+     *     {@link ReviewSchema }
      *     
      */
-    public Review getReviewInfo() {
-        return songInfo;
+    public ReviewSchema getReviewInfo() {
+        return reviewSchema;
     }
 
     /**
-     * Define el valor de la propiedad songInfo.
+     * Define el valor de la propiedad reviewSchema.
      * 
      * @param value
      *     allowed object is
-     *     {@link Review }
+     *     {@link ReviewSchema }
      *     
      */
-    public void setReviewInfo(Review value) {
-        this.songInfo = value;
+    public void setReview(ReviewSchema value) {
+        this.reviewSchema = value;
     }
 
 }

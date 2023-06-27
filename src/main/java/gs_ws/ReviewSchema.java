@@ -43,18 +43,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "songInfo", propOrder = {
-        "id",
-        "name",
-        "lyrics",
-        "originalTone",
-        "femaleTone",
-        "maleTone",
-        "artist",
-        "time",
-        "genre"
+@XmlType(name = "reviewSchema", propOrder = {
+        "_id",
+        "user",
+        "rating",
+        "review",
+        "movie",
 })
-public class Review {
+public class ReviewSchema {
 
     protected String _id;
     @XmlElement(required = true)

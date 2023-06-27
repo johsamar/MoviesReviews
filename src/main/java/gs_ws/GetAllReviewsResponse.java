@@ -23,7 +23,7 @@ import java.util.List;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="songInfo" type="{http://spring.io/guides/gs-producing-web-service}songInfo" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="reviewSchema" type="{http://spring.io/guides/gs-producing-web-service}reviewSchema" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,22 +34,22 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "songInfo"
+    "reviewSchema"
 })
 @XmlRootElement(name = "getAllReviewsResponse")
 public class GetAllReviewsResponse {
 
     @XmlElement(required = true)
-    protected List<Review> songInfo;
+    protected List<ReviewSchema> reviewSchema;
 
     /**
-     * Gets the value of the songInfo property.
+     * Gets the value of the reviewSchema property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the songInfo property.
+     * This is why there is not a <CODE>set</CODE> method for the reviewSchema property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
@@ -60,15 +60,15 @@ public class GetAllReviewsResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Review }
+     * {@link ReviewSchema }
      * 
      * 
      */
-    public List<Review> getReviewInfo() {
-        if (songInfo == null) {
-            songInfo = new ArrayList<Review>();
+    public List<ReviewSchema> getReview() {
+        if (reviewSchema == null) {
+            reviewSchema = new ArrayList<ReviewSchema>();
         }
-        return this.songInfo;
+        return this.reviewSchema;
     }
 
 }

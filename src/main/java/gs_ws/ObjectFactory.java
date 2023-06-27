@@ -45,11 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Review }
+     * Create an instance of {@link ReviewSchema }
      * 
      */
-    public Review createReviewInfo() {
-        return new Review();
+    public ReviewSchema createReviewInfo() {
+        return new ReviewSchema();
     }
 
     /**

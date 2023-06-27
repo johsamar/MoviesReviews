@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="review" type="{http://spring.io/guides/gs-producing-web-service}review"/&gt;
+ *         &lt;element name="reviewSchema" type="{http://spring.io/guides/gs-producing-web-service}reviewSchema"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -32,36 +32,36 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "review"
+    "reviewSchema"
 })
 @XmlRootElement(name = "addReviewRequest")
 public class AddReviewRequest {
 
     @XmlElement(required = true)
-    protected Review review;
+    protected ReviewSchema reviewSchema;
 
     /**
-     * Obtiene el valor de la propiedad review.
+     * Obtiene el valor de la propiedad reviewSchema.
      * 
      * @return
      *     possible object is
-     *     {@link Review }
+     *     {@link ReviewSchema }
      *     
      */
-    public Review getReview() {
-        return review;
+    public ReviewSchema getReview() {
+        return reviewSchema;
     }
 
     /**
-     * Define el valor de la propiedad review.
+     * Define el valor de la propiedad reviewSchema.
      * 
      * @param value
      *     allowed object is
-     *     {@link Review }
+     *     {@link ReviewSchema }
      *     
      */
-    public void setReview(Review value) {
-        this.review = value;
+    public void setReview(ReviewSchema value) {
+        this.reviewSchema = value;
     }
 
 }

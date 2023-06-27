@@ -3,7 +3,7 @@
            targetNamespace="http://spring.io/guides/gs-producing-web-service"
            elementFormDefault="qualified">
 
-    <xs:complexType name="Review">
+    <xs:complexType name="ReviewSchema">
         <xs:sequence>
             <xs:element name="_id" type="xs:string"/>
             <xs:element name="user" type="xs:string"/>
@@ -23,7 +23,7 @@
     <xs:element name="createReviewRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Review" type="tns:Review" />
+                <xs:element name="Review" type="tns:ReviewSchema" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -31,7 +31,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="serviceStatus" type="tns:serviceStatus" />
-                <xs:element name="Review" type="tns:Review" />
+                <xs:element name="Review" type="tns:ReviewSchema" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -48,7 +48,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="serviceStatus" type="tns:serviceStatus" />
-                <xs:element name="Review" type="tns:Review"/>
+                <xs:element name="Review" type="tns:ReviewSchema"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -64,7 +64,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="serviceStatus" type="tns:serviceStatus" />
-                <xs:element name="Review" type="tns:Review" maxOccurs="unbounded"/>
+                <xs:element name="Review" type="tns:ReviewSchema" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -75,7 +75,7 @@
     <xs:element name="getAllReviewsResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Review" type="tns:Review" maxOccurs="unbounded"/>
+                <xs:element name="Review" type="tns:ReviewSchema" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -83,7 +83,7 @@
     <xs:element name="updateReviewRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Review" type="tns:Review" />
+                <xs:element name="Review" type="tns:ReviewSchema" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.johsam.movies_reviews.dto.ResponseAPI;
 import com.johsam.movies_reviews.models.Movie;
-import com.johsam.movies_reviews.services.MoviesServiceImplement;
+import com.johsam.movies_reviews.services.interfaces.MoviesService;
 import com.johsam.movies_reviews.utils.Constants;
 
 @RestController
@@ -26,7 +26,7 @@ import com.johsam.movies_reviews.utils.Constants;
 public class MoviesController {
 
     @Autowired
-    private MoviesServiceImplement moviesService;
+    private MoviesService moviesService;
 
     @GetMapping(Constants.GET_ALL)
     public ResponseEntity<ResponseAPI> getAll() {
