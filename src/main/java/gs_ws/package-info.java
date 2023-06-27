@@ -5,5 +5,5 @@
 // Generado el: 2022.11.24 a las 12:31:36 AM COT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://spring.io/guides/gs-producing-web-service", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.baeldung.com/springsoap/gen", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package gs_ws;

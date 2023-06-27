@@ -1,14 +1,10 @@
 package com.johsam.movies_reviews.endpoints;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -21,11 +17,11 @@ import gs_ws.*;
 
 @Endpoint
 public class ReviewsEndpoints {
-    private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
+    private static final String NAMESPACE_URI = "http://www.baeldung.com/springsoap/gen";
     @Autowired
     ReviewsService reviewsService;
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addReviewRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createReviewRequest")
     @ResponsePayload
     public AddReviewResponse addReview(@RequestPayload AddReviewRequest request) {
         Review addReview = new Review();

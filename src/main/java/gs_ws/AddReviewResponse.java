@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.*;
     "serviceStatus",
     "reviewSchema"
 })
-@XmlRootElement(name = "addReviewResponse")
+@XmlRootElement(name = "createReviewResponse")
 public class AddReviewResponse {
 
     @XmlElement(required = true)

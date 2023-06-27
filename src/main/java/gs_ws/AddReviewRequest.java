@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "", propOrder = {
     "reviewSchema"
 })
-@XmlRootElement(name = "addReviewRequest")
+@XmlRootElement(name = "createReviewRequest")
 public class AddReviewRequest {
 
     @XmlElement(required = true)
