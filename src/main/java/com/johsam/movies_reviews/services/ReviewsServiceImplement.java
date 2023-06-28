@@ -7,16 +7,23 @@ import org.springframework.stereotype.Service;
 
 import com.johsam.movies_reviews.models.Review;
 import com.johsam.movies_reviews.repositories.ReviewRepository;
+import com.johsam.movies_reviews.services.interfaces.MoviesService;
 import com.johsam.movies_reviews.services.interfaces.ReviewsService;
 
 @Service
-public class ReviewsServiceImplement implements ReviewsService{
+public class ReviewsServiceImplement implements ReviewsService {
 
     @Autowired
     ReviewRepository reviewRepository;
 
-   @Override
+    @Autowired
+    MoviesService moviesService;
+
+    @Override
     public Review create(Review review) throws Exception {
+
+        validateMovieToReview(review.getMovie());
+
         Review movieCreated = reviewRepository.save(review);
         if (movieCreated == null) {
             throw new Exception("Review not created");
@@ -63,6 +70,9 @@ public class ReviewsServiceImplement implements ReviewsService{
 
     @Override
     public Review update(Review updateReview) throws Exception {
+
+        validateMovieToReview(updateReview.getMovie());
+
         Review review;
         if (updateReview.get_id() != null) {
             review = reviewRepository.save(updateReview);
@@ -73,5 +83,17 @@ public class ReviewsServiceImplement implements ReviewsService{
         }
         throw new Exception("The review doesn't exist");
     }
-    
+
+    /**
+     * Validate if the movie exist
+     * @param review 
+     * @throws Exception
+     */
+    private void validateMovieToReview(String movieId) throws Exception {
+        try {
+            moviesService.getById(movieId);
+        } catch (Exception e) {
+            throw new Exception("Movie doesn't exist");
+        }
+    }
 }

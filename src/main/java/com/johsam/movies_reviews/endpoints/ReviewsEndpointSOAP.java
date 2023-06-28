@@ -2,6 +2,7 @@ package com.johsam.movies_reviews.endpoints;
 
 import java.util.List;
 
+import org.apache.tomcat.util.bcel.classfile.Constant;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import com.johsam.gs_ws.UpdateReviewRequest;
 import com.johsam.gs_ws.UpdateReviewResponse;
 import com.johsam.movies_reviews.models.Review;
 import com.johsam.movies_reviews.services.interfaces.ReviewsService;
+import com.johsam.movies_reviews.utils.Constants;
 
 @Component
 @Endpoint
@@ -46,11 +48,10 @@ public class ReviewsEndpointSOAP {
                 BeanUtils.copyProperties(review, reviewSchema);
                 reviewSchema.setId(review.get_id());
                 response.getReview().add(reviewSchema);
+                response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), Constants.SUCCESS));
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-            // response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(),
-
+            response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(), e.getMessage()));
         }
         return response;
     }
@@ -61,12 +62,15 @@ public class ReviewsEndpointSOAP {
         Review addReview = new Review();
 
         CreateReviewResponse response = new CreateReviewResponse();
-        String message = "Review added successfully";
         BeanUtils.copyProperties(request.getReview(), addReview);
         try {
+            addReview.validate();
             Review reviewCreated = reviewsService.create(addReview);
-            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), message));
-            response.setReview(request.getReview());
+            ReviewSchema reviewSchemaCreated = new ReviewSchema();
+            BeanUtils.copyProperties(reviewCreated, reviewSchemaCreated);
+            reviewSchemaCreated.setId(reviewCreated.get_id());
+            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), Constants.CREATED));
+            response.setReview(reviewSchemaCreated);
         } catch (Exception e) {
             response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(), e.getMessage()));
         }
@@ -79,14 +83,13 @@ public class ReviewsEndpointSOAP {
     public GetReviewByIdResponse getReviewId(@RequestPayload GetReviewByIdRequest request) {
         GetReviewByIdResponse response = new GetReviewByIdResponse();
         ReviewSchema reviewSchema = new ReviewSchema();
-        String message = "Content Found";
 
         try {
             Review reviewFound = reviewsService.getById(request.getId());
             BeanUtils.copyProperties(reviewFound, reviewSchema);
             reviewSchema.setId(reviewFound.get_id());
             response.setReview(reviewSchema);
-            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), message));
+            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), Constants.SUCCESS));
         } catch (Exception e) {
             response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(), e.getMessage()));
         }
@@ -101,8 +104,11 @@ public class ReviewsEndpointSOAP {
 
         try {
             Review wasDeleted = reviewsService.deleteById(request.getId());
-            String message = "Content Deleted Successfully";
-            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), message));
+            ReviewSchema reviewSchemaDeleted = new ReviewSchema();
+            BeanUtils.copyProperties(wasDeleted, reviewSchemaDeleted);
+            reviewSchemaDeleted.setId(wasDeleted.get_id());
+            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), Constants.DELETED));
+            response.setReview(reviewSchemaDeleted);
         } catch (Exception e) {
             response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(), e.getMessage()));
         }
@@ -115,11 +121,16 @@ public class ReviewsEndpointSOAP {
     public UpdateReviewResponse updateReview(@RequestPayload UpdateReviewRequest request) {
         Review updateReview = new Review();
         UpdateReviewResponse response = new UpdateReviewResponse();
-        String message = "Content Updated Successfully";
         BeanUtils.copyProperties(request.getReview(), updateReview);
+        updateReview.set_id(request.getReview().getId());
         try {
-            reviewsService.update(updateReview);
-            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), message));
+            Review updated = reviewsService.update(updateReview);
+            ReviewSchema reviewSchemaUpdated = new ReviewSchema();
+            BeanUtils.copyProperties(updated, reviewSchemaUpdated);
+            reviewSchemaUpdated.setId(updated.get_id());
+
+            response.setServiceStatus(getServiceStatus(HttpStatus.OK.toString(), Constants.UPDATED));
+            response.setReview(reviewSchemaUpdated);
         } catch (Exception e) {
             response.setServiceStatus(getServiceStatus(HttpStatus.BAD_REQUEST.toString(), e.getMessage()));
         }

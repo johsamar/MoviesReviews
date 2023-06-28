@@ -54,4 +54,10 @@ public class Review {
         this.movie = movie;
     }
 
+    public void validate(){
+        if (this.rating < 0 || this.rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 0 and 5");
+        }
+    }
+
 }

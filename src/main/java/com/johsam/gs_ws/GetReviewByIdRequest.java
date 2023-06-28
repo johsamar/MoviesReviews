@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.27 a las 09:43:04 PM COT 
+// Generado el: 2023.06.28 a las 09:08:32 AM COT 
 //
 
 
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="serviceStatus" type="{http://www.johsam.com/gs_ws}serviceStatus"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,40 +37,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id",
-    "serviceStatus"
+    "serviceStatus",
+    "id"
 })
 @XmlRootElement(name = "getReviewByIdRequest")
 public class GetReviewByIdRequest {
 
     @XmlElement(required = true)
-    protected String id;
-    @XmlElement(required = true)
     protected ServiceStatus serviceStatus;
-
-    /**
-     * Obtiene el valor de la propiedad id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Define el valor de la propiedad id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
+    @XmlElement(required = true)
+    protected String id;
 
     /**
      * Obtiene el valor de la propiedad serviceStatus.
@@ -94,6 +70,30 @@ public class GetReviewByIdRequest {
      */
     public void setServiceStatus(ServiceStatus value) {
         this.serviceStatus = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad id.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Define el valor de la propiedad id.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setId(String value) {
+        this.id = value;
     }
 
 }

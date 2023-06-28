@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.06.27 a las 09:43:04 PM COT 
+// Generado el: 2023.06.28 a las 09:08:32 AM COT 
 //
 
 
@@ -45,11 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetReviewByNameResponse }
+     * Create an instance of {@link DeleteReviewResponse }
      * 
      */
-    public GetReviewByNameResponse createGetReviewByNameResponse() {
-        return new GetReviewByNameResponse();
+    public DeleteReviewResponse createDeleteReviewResponse() {
+        return new DeleteReviewResponse();
     }
 
     /**
@@ -69,27 +69,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeleteReviewResponse }
-     * 
-     */
-    public DeleteReviewResponse createDeleteReviewResponse() {
-        return new DeleteReviewResponse();
-    }
-
-    /**
      * Create an instance of {@link CreateReviewResponse }
      * 
      */
     public CreateReviewResponse createCreateReviewResponse() {
         return new CreateReviewResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetReviewByNameRequest }
-     * 
-     */
-    public GetReviewByNameRequest createGetReviewByNameRequest() {
-        return new GetReviewByNameRequest();
     }
 
     /**
