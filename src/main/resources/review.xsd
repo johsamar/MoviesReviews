@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.johsam.com/gs_ws"
+    targetNamespace="http://www.johsam.com/gs_ws"
+    elementFormDefault="qualified">
+
+    <xs:complexType name="reviewSchema">
+        <xs:sequence>
+            <xs:element name="_id" type="xs:string" minOccurs="0" />
+            <xs:element name="user" type="xs:string" />
+            <xs:element name="rating" type="xs:double" />
+            <xs:element name="review" type="xs:string" />
+            <xs:element name="movie" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="message" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="createReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getReviewByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getReviewByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllReviewsRequest">
+        <xs:complexType />
+    </xs:element>
+
+    <xs:element name="getAllReviewsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="review" type="tns:reviewSchema" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="review" type="tns:reviewSchema" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
