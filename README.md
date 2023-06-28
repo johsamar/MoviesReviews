@@ -13,6 +13,15 @@ Open terminal and chose a folder, copy and paste this line and run.
 ```
 git clone https://github.com/johsamar/MoviesReviews.git
 ```
+## Properties
+
+On application.properties you can configure the port, the context-path, and the mongodb-uri as follow
+```
+server.port = 8081
+server.servlet.context-path = /api
+
+spring.data.mongodb.uri= mongodb+srv://guests:guests12345@pruebas.avsq3gq.mongodb.net/testing?retryWrites=true&w=majority
+```
 
 ## Test requests REST and SOAP
 
